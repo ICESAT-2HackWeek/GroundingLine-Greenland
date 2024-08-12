@@ -39,13 +39,9 @@ Overall, we will test the ability of ICESat-2 to derive grounding line positions
 
 **Ancillary datasets**
 1. **Terminus position**: [MEaSUREs Annual Greenland Outlet Glacier Terminus Positions from SAR Mosaics, Version 2](https://nsidc.org/data/nsidc-0642/versions/2), or [TermPicks](https://doi.org/10.5281/zenodo.6557981)
-2. **Satellite images**: Sentinel2
-3. **Glacier flow lines**:
-4. **Validation grounding line datasets**:
-
-### Existing methods
-
-To be added
+2. **Satellite images**: Sentinel2 (accessed through Google Earth Engine Python API)
+3. **Glacier flow lines**: [Felikson et al. (2020)](https://doi.org/10.1029/2020GL090112) (Data is available on [Zenodo](https://doi.org/10.5281/zenodo.4284759))
+4. **Validation grounding line datasets**: [Ciracì et al. (2023)](https://doi.org/10.1073/pnas.2220924120) (Data is available on [Dryad](https://doi.org/10.7280/D1XT4G))
 
 ### Proposed methods/tools
 
@@ -53,16 +49,20 @@ We will test at least the following two different methods.
 
 1. Calculate the floatation height using Archimedes' principle and determine whether the ice is grounded by comparing it with the surface elevation from ICESat-2.
 2. Using the surface elevation profile to find the "inflexion point", e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790)
-*Picture to be added*.
+<img width="1205" alt="image" src="">
 
-Here is a simple flow chart:
+Here is a flowchart:
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+graph LR;
+    A(ATL06)-->B[/Subset to AOI/];
+    B-->|Method #1|C;
+    B-->|Method #2|D;
+    C[/Get bed elevation/]-->E[/Calculate floatation height/];
+    E-->F[/Determine threshold/];
+    F-->H(Grounding line);
+    D(Surface elevation change profile\n along ground tracks)-->G[/Change point detection/];
+    G-->H;
 ```
 
 ### Additional resources or background reading
