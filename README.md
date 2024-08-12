@@ -55,6 +55,16 @@ We will test at least the following two different methods.
 2. Using the surface elevation profile to find the "inflexion point", e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790)
 *Picture to be added*.
 
+Here is a simple flow chart:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 ### Additional resources or background reading
 
 **What is a ground line or grounding zone?
