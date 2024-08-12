@@ -48,10 +48,10 @@ Overall, we will test the ability of ICESat-2 to derive grounding line positions
 We will test at least the following two different methods.
 
 1. Calculate the floatation height using Archimedes' principle and determine whether the ice is grounded by comparing it with the surface elevation from ICESat-2.
-2. Using the surface elevation profile to find the "inflexion point", e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790)
+2. Use the surface elevation profile to find the "inflexion point" ("I" in the diagram below), e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790). This method won't need the bed topography, which has it's own uncertainty.
 <img width="1205" alt="image" src="https://github.com/hui-97/Test-project/blob/main/assets/Screenshot%202024-08-12%20at%206.51.37%E2%80%AFPM.png">
 
-Here is a flowchart:
+Here is a flowchart for the proposed methods:
 
 ```mermaid
 graph LR;
@@ -64,6 +64,27 @@ graph LR;
     D(Surface elevation change profile\n along ground tracks)-->G[/Change point detection/];
     G-->H;
 ```
+
+In addition, participants are welcome to explore beyond the above mentioned grounding line detection methods. Here are three examples.
+
+**Example 1**: use ATL03 instead of ATL06 to explore the glacier gemetry near the ice-ocean boundary. One can also play with different data filtering methods to find ice surface and test if it's a better dataset for finding grounding zone, an example flowchart can be:
+
+```mermaid
+graph LR;
+    A(ATL03)-->B[/Subset to AOI/];
+    B-->C{is it on land ice?};
+    C-->|Yes| D[/Point cloud data filtering/];
+    C-->|No| E[Terminus position];
+    D-->F(Ice surface);
+    F-->G[/Grounding line/zone detection/]
+```
+
+**Example 2**: Data visualization is more than visualizing the data. It help us with understanding the information behind the dataset in an effective and engaging way. Tools such as *dash* or *streamlit* help build interactive dashboards or web apps. Objectives of trying these tools can be:
+
+1. Visualizing 3d or 4d data without coding for users, such as showing maps, surface elevation profiles, or time series on user selected date or location.
+2. Show statistics. For instance, how many glaciers on Greenland Ice Sheet have a floating ice tonge, which means the grounding line is upstream of the glacier terminus and where they are.
+
+**Example 3**: Test using DEMs to derive grounding line and compare with ICESat-2 results. DEMs such as SPOT DEM, Arctic DEM or Worldview DEM have the potential to resolve full grounding line in the fast-flowing region of tidewater glaciers. But they do have different levels of uncertainty in their vertical accuracy, sometimes the error can be as high as a few meters. If you are interested in looking into it, even just comparing these various DEMs with ICESat-2 surface elevation, would be a great exercise.
 
 ### Additional resources or background reading
 
