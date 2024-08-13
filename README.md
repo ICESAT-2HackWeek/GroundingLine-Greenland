@@ -51,7 +51,7 @@ We will test at least the following two different methods.
 2. Use the surface elevation profile to find the "inflexion point" ("I" in the diagram below), e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790). This method won't need the bed topography, which has it's own uncertainty.
 <img width="1205" alt="image" src="https://github.com/hui-97/Test-project/blob/main/assets/Screenshot%202024-08-12%20at%206.51.37%E2%80%AFPM.png">
 
-Here is a flowchart for the proposed methods:
+Note that tidal movement or sea level variation can introduce challenges to the above mentioned methods. And none of them is a direct measurement of grounding line, but more of a proxy to the grounding line. Here is a flowchart for the proposed methods:
 
 ```mermaid
 graph LR;
@@ -79,7 +79,7 @@ graph LR;
     F-->G[/Grounding line/zone detection/]
 ```
 
-**Example 2**: Data visualization is more than visualizing the data. It help us with understanding the information behind the dataset in an effective and engaging way. Tools such as *dash* or *streamlit* help build interactive dashboards or web apps. Objectives of trying these tools can be:
+**Example 2**: Data visualization is more than visualizing the data. It help us with understanding the information behind the dataset in an effective and engaging way. Tools such as *[dash](https://dash.plotly.com/)* or *[streamlit](https://streamlit.io/)* help build interactive dashboards or web apps. Objectives of trying these tools can be:
 
 1. Visualizing 3d or 4d data without coding for users, such as showing maps, surface elevation profiles, or time series on user selected date or location.
 2. Show statistics. For instance, how many glaciers on Greenland Ice Sheet have a floating ice tonge, which means the grounding line is upstream of the glacier terminus and where they are.
@@ -88,22 +88,23 @@ graph LR;
 
 ### Additional resources or background reading
 
-**What is a ground line or grounding zone?
-1. quote
-2. quote
+What is a ground line or grounding zone?
+1. Tidewater glaciers are marine-terminating outlet glaciers, where glacier flows to the ocean with its bedrock at the terminus beneath sea level.
+2. Grounding line is the boundary between grounded ice and the adjoining floating ice shelf or ice tongue ([Weertman et al., 1974](https://doi.org/10.3189/S0022143000023327)). Here is also a more recent review of "Remote sensing of glacier and ice sheet grounding lines" from [Friedl et al. (2020)](https://doi.org/10.1016/j.earscirev.2019.102948)
 
-**ICESat-2
-1. Citation 2017 paper
-2. Link to NSIDC Data Portal
-3. Data access packages: icepyx, SlideRule
+ICESat-2
+1. Description of ICESat-2 satellite mission from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
+2. ICESat-2 data is available on [NSIDC](https://nsidc.org/data/icesat-2/data)
+3. Python packages for obtaining ICESat-2 data: [icepyx](https://icepyx.readthedocs.io/en/latest/), [SlideRule](https://slideruleearth.io/)
 
-**Python Libraries for Geospatial Data Processing
-1. gdal
-2. geopandas
-4. shapely
-5. rasterio
-7. pyproj for projection transformation
-8. xarray
+Python Libraries for Geospatial Data Processing
+1. [gdal](https://gdal.org/api/index.html#python-api) for general geospatial data processing.
+2. [GeoPandas](https://geopandas.org/en/stable/index.html) has *GeoDataFrame* that works great with raster or vector data.
+4. [Shapely](https://shapely.readthedocs.io/en/stable/) has great functions to work with vector data, such as creating and processing points, lines, and polygons.
+5. [Rasterio](https://rasterio.readthedocs.io/en/stable/) has all the basin functions to read and processing raster data.
+7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformation
+8. Xarray
+9. hdf5, netCDF4
 
 **Other useful tools
 1. **Version control: Github and git
