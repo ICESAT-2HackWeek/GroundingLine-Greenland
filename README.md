@@ -1,15 +1,15 @@
-# Groundingline-Greenland
+# GroundingLine-Greenland
 
 ## Gounding line/zone delineation using ICESat-2
 
 This is a project of the [ICESat-2 track](https://icesat-2-2024.hackweek.io/intro.html) of the [UW Earth Sciences hackweek 2024](https://2024.hackweek.io/).
 
-The project derives the grounding line position of Greenland's tidewater glaciers from the surface elevation measured by ICESat-2. The grounding line or grounding zone has been identified as an important feature related to the stability of tidewater glaciers. Its depth is a key parameter in modeling submarine melting. If the grounding line is above a retrograde bed, it can induce rapid retreat of the calving front. Previous studies have also shown that glaciers are more sensitive to grounding line migration than to changes in terminus position due to reductions in basal resistance. There are many other questions that need to be investigated, such as how grounding line migration might affect the drainage of subglacial channels.
+The project derives the grounding line position of Greenland's tidewater glaciers from the surface elevation measured by ICESat-2. The grounding line or grounding zone has been identified as an important feature related to the stability of tidewater glaciers. Its depth is a key parameter in modeling submarine melting. If the grounding line is on a retrograde bed, it can induce rapid retreat of the calving front. Previous studies have also shown that glaciers are more sensitive to grounding line migration than to changes in terminus position due to reductions in basal resistivity. There are many other questions that need to be investigated, such as how grounding line migration might affect the drainage of subglacial channels.
 
-During this hackweek we hope to achieve the following broad goals. Team members are welcome to define their own objectives and combine it with our project.
+During this hackweek we hope to accomplish the following broad goals. Team members are welcome to define their own goals and combine them with our project.
 
 1. Become familiar with ICESat-2 datasets and geospatial data processing using Python.
-2. Explore different methods of deriving grounding lines from surface elevation measurements and corresponding challenges and uncertainties.
+2. Explore different methods for deriving grounding lines from surface elevation measurements, and the challenges and uncertainties involved.
 3. Develop reproducible workflows and data visualization tools.
 
 
@@ -17,13 +17,13 @@ During this hackweek we hope to achieve the following broad goals. Team members 
 
 | Name | Personal goals | Can help with | Role |
 | ------------- | ------------- | ------------- | ------------- |
-| Hui Gao | Testing ICESat-2's capability in deriving grounding line of Greenland tidewater glaciers | Geospatial data processing, method development, Github  | Project Lead |
+| Hui Gao | Testing the ability of ICESat-2 to derive the grounding line of Greenland tidewater glaciers | Geospatial data processing, method development, Github  | Project Lead |
 | ... | ... | ... | ... |
 | ... | ... | ... | ... |
 
 ### The problem
 
-The grounding line or grounding zone is an important feature at the ice-ocean boundary. Most previous studies have focused on the Antarctic ice sheet, where large ice shelves exist. The Greenland Ice Sheet is drained by over 150 tidewater glaciers, most of which are less than 5 km wide near the terminus. Many of these glaciers terminate in a narrow fjord, and some form floating ice tongues. However, only a few datasets of the grounding lines of Greenland's tidewater glaciers are published, one of the publicly available datasets is this [CCI dataset](http://products.esa-icesheets-cci.org/products/downloadlist/GLL/) in northern Greenland. 
+The grounding line or grounding zone is an important feature at the ice-ocean boundary. Most previous studies have focused on the Antarctic Ice Sheet, where large ice shelves exist. The Greenland Ice Sheet is drained by over 150 tidewater glaciers, most of which are less than 5 km wide near the terminus. Many of these glaciers terminate in a narrow fjord, and some form floating ice tongues. However, only a few datasets of the grounding lines of Greenland's tidewater glaciers are published, one of the publicly available datasets is this [CCI dataset](http://products.esa-icesheets-cci.org/products/downloadlist/GLL/) in northern Greenland. 
 
 ICESat-2 measures surface elevation with high vertical accuracy and a small footprint. Its temporal and spatial sampling has been greatly improved compared to ICESat. However, the gaps between ground tracks and the current temporal resolution of repeated ground tracks may still not be ideal for our purpose. In addition, we can expect challenges due to tidal correction, firn correction, and uncertainty in bedrock topography.
 
@@ -40,7 +40,7 @@ Overall, we will test the ability of ICESat-2 to derive grounding line positions
 **Ancillary datasets**
 1. **Terminus position**: [MEaSUREs Annual Greenland Outlet Glacier Terminus Positions from SAR Mosaics, Version 2](https://nsidc.org/data/nsidc-0642/versions/2), or [TermPicks](https://doi.org/10.5281/zenodo.6557981)
 2. **Satellite images**: Sentinel2 (accessed through Google Earth Engine Python API)
-3. **Glacier flow lines**: [Felikson et al. (2020)](https://doi.org/10.1029/2020GL090112) (Data is available on [Zenodo](https://doi.org/10.5281/zenodo.4284759))
+3. **Glacier flowlines**: [Felikson et al. (2020)](https://doi.org/10.1029/2020GL090112) (Data is available on [Zenodo](https://doi.org/10.5281/zenodo.4284759))
 4. **Validation grounding line datasets**: [Ciracì et al. (2023)](https://doi.org/10.1073/pnas.2220924120) (Data is available on [Dryad](https://doi.org/10.7280/D1XT4G))
 
 ### Proposed methods/tools
@@ -48,10 +48,10 @@ Overall, we will test the ability of ICESat-2 to derive grounding line positions
 We will test at least the following two different methods.
 
 1. Calculate the floatation height using Archimedes' principle and determine whether the ice is grounded by comparing it with the surface elevation from ICESat-2.
-2. Use the surface elevation profile to find the "inflexion point" ("I" in the diagram below), e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790). This method won't need the bed topography, which has it's own uncertainty.
+2. Use the surface elevation profile to find the "inflexion point" ("I" in the figure below), e.g. [Fricker and Padman et al. (2006)](https://doi.org/10.1029/2006GL026907) and [Brunt et al. (2010)](https://doi.org/10.3189/172756410791392790). This method does not require bed topography which has its own uncertainty.
 <img width="1205" alt="image" src="https://github.com/hui-97/Test-project/blob/main/assets/Screenshot%202024-08-12%20at%206.51.37%E2%80%AFPM.png">
 
-Note that tidal movement or sea level variation can introduce challenges to the above mentioned methods. And none of them is a direct measurement of grounding line, but more of a proxy to the grounding line. Here is a flowchart for the proposed methods:
+Note that tidal movement or sea level changes can add challenges to the above methods. And none of them is a direct measurement of the grounding line, but rather a proxy for the grounding line. Here is a flowchart of the proposed methods:
 
 ```mermaid
 graph LR;
@@ -66,52 +66,52 @@ graph LR;
 ```
 
 > [!NOTE]
-> In addition, participants are welcome to explore beyond the above mentioned grounding line detection methods. Here are three examples.
+> In addition, team members are encouraged to explore other methods of grounding beyond those listed above. Here are three examples.
 
-**Example 1**: use ATL03 instead of ATL06 to explore the glacier gemetry near the ice-ocean boundary. One can also play with different data filtering methods to find ice surface and test if it's a better dataset for finding grounding zone, an example flowchart can be:
+**Example 1**: Use ATL03 instead of ATL06 to explore glacier geometry near the ice-ocean boundary. You can also play with different data filtering methods to find the ice surface and test if it's a better dataset for finding the grounding zone, see an example flowchart:
 
 ```mermaid
 graph LR;
     A(ATL03)-->B[/Subset to AOI/];
     B-->C{is it on land ice?};
-    C-->|Yes| D[/Point cloud data filtering/];
+    C-->|Yes| D[/Photon data filtering/];
     C-->|No| E[Terminus position];
     D-->F(Ice surface);
     F-->G[/Grounding line/zone detection/]
 ```
 
-**Example 2**: Data visualization is more than visualizing the data. It help us with understanding the information behind the dataset in an effective and engaging way. Tools such as *[dash](https://dash.plotly.com/)* or *[streamlit](https://streamlit.io/)* help build interactive dashboards or web apps. Objectives of trying these tools can be:
+**Example 2**: Data visualization is more than just visualizing data. It helps us understand the information behind the dataset in an effective and engaging way. Tools like *[dash](https://dash.plotly.com/)* or *[streamlit](https://streamlit.io/)* help to create interactive dashboards or web applications. Objectives of trying these tools can be:
 
-1. Visualizing 3d or 4d data without coding for users, such as showing maps, surface elevation profiles, or time series on user selected date or location.
-2. Show statistics. For instance, how many glaciers on Greenland Ice Sheet have a floating ice tonge, which means the grounding line is upstream of the glacier terminus and where they are.
+1. Visualize 3D or 4D data without user coding, such as displaying maps, surface elevation profiles, or time series at a user-selected date or location.
+2. Display statistics. For example, how many glaciers on the Greenland Ice Sheet have a floating ice tongue, meaning the grounding line is upstream of the glacier terminus, and where they are located?
 
-**Example 3**: Test using DEMs to derive grounding line and compare with ICESat-2 results. DEMs such as SPOT DEM, Arctic DEM or Worldview DEM have the potential to resolve full grounding line in the fast-flowing region of tidewater glaciers. But they do have different levels of uncertainty in their vertical accuracy, sometimes the error can be as high as a few meters. If you are interested in looking into it, even just comparing these various DEMs with ICESat-2 surface elevation, would be a great exercise.
+**Example 3**: Test the use of DEMs to derive the grounding line and compare with ICESat-2 results. DEMs such as [ArcticDEM](https://www.pgc.umn.edu/data/arcticdem/) have the potential to resolve the full grounding line in the fast-flowing region of tidewater glaciers. However, they have varying degrees of uncertainty in their vertical accuracy. Sometimes the error can be as large as a few meters. If you are interested in looking into this, even just comparing these different DEMs with the ICESat-2 surface elevation would be a great exercise.
 
 ### Additional resources or background reading
 
-**What is a ground line or grounding zone?**
-1. Tidewater glaciers are marine-terminating outlet glaciers, where glacier flows to the ocean with its bedrock at the terminus beneath sea level.
-2. Grounding line is the boundary between grounded ice and the adjoining floating ice shelf or ice tongue ([Weertman et al., 1974](https://doi.org/10.3189/S0022143000023327)). Here is also a more recent review of "Remote sensing of glacier and ice sheet grounding lines" from [Friedl et al. (2020)](https://doi.org/10.1016/j.earscirev.2019.102948)
+**What is a ground line or grounding zone?** 1.
+1. Tidewater glaciers are marine-terminating outlet glaciers, where the glacier flows into the ocean with its bedrock at the terminus below sea level.
+2. Grounding line is the boundary between grounded ice and the adjoining floating ice shelf or ice tongue ([Weertman et al., 1974](https://doi.org/10.3189/S0022143000023327)). Here is also a more recent review of "Remote sensing of glacier and ice sheet grounding lines" by [Friedl et al. (2020)](https://doi.org/10.1016/j.earscirev.2019.102948)
 
 **About ICESat-2**
-1. Description of ICESat-2 satellite mission from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
-2. ICESat-2 data is available on [NSIDC](https://nsidc.org/data/icesat-2/data)
-3. Python packages for obtaining ICESat-2 data: [icepyx](https://icepyx.readthedocs.io/en/latest/), [SlideRule](https://slideruleearth.io/)
+1. Description of the ICESat-2 satellite mission from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
+2. ICESat-2 data are available at [NSIDC](https://nsidc.org/data/icesat-2/data)
+3. Python packages to obtain ICESat-2 data: [icepyx](https://icepyx.readthedocs.io/en/latest/), [SlideRule](https://slideruleearth.io/)
 
 **Python libraries for geospatial data processing**
 1. [gdal](https://gdal.org/api/index.html#python-api) for general geospatial data processing.
-2. [GeoPandas](https://geopandas.org/en/stable/index.html) has *GeoDataFrame* that works great with raster or vector data.
-4. [Shapely](https://shapely.readthedocs.io/en/stable/) has great functions to work with vector data, such as creating and processing points, lines, and polygons.
-5. [Rasterio](https://rasterio.readthedocs.io/en/stable/) has all the basin functions to read and processing raster data.
-7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformation.
-8. [Xarray](https://docs.xarray.dev/en/stable/) works great with labelled multi-dimensional arrays or datasets, such as netCDF files.
+2. [GeoPandas](https://geopandas.org/en/stable/index.html) has *GeoDataFrame* which works well with raster or vector data.
+4. [Shapely](https://shapely.readthedocs.io/en/stable/) has great functions for working with vector data, such as creating and manipulating points, lines, and polygons.
+5. [Rasterio](https://rasterio.readthedocs.io/en/stable/) has all the basic functions to read and processing raster data.
+7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformations.
+8. [Xarray](https://docs.xarray.dev/en/stable/) works great with labelled multidimensional arrays or datasets, such as netCDF files.
 9. [netCDF4](https://unidata.github.io/netcdf4-python/) is used to handle netCDF files in Python.
-10. [h5py](https://docs.h5py.org/en/stable/)is used to handle HDF5 binary data format, which is used by ICESat-2 ATL03 and ATL06 datasets.
-11. [ee](https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api) is the Google Earth Engine Python API, which can be used to visualize and analyze various remote sensing dataset in the cloud.
+10. [h5py](https://docs.h5py.org/en/stable/)is used to handle HDF5 binary data format, which is used by the ICESat-2 ATL03 and ATL06 datasets.
+11. [ee](https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api) is the Google Earth Engine Python API, which can be used to visualize and analyze various remote sensing datasets in the cloud.
 
 **Other useful tools**
 1. Version control: Github and git
-2. Workflow Management System: [Snakemake](https://snakemake.github.io/) (Python-based workflow management system to create reproducible and scalable data analyses)
+2. Workflow management system: [Snakemake](https://snakemake.github.io/) (Python-based workflow management system to create reproducible and scalable data analyses)
 3. Interactive data apps: [dash](https://dash.plotly.com/), [streamlit](https://streamlit.io/)
 
 ## Files and folders in your project repository
