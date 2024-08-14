@@ -89,9 +89,10 @@ graph LR;
 
 ### Additional resources or background reading
 
-**What is a ground line or grounding zone?** 1.
+**What is a ground line or grounding zone?**
 1. Tidewater glaciers are marine-terminating outlet glaciers, where the glacier flows into the ocean with its bedrock at the terminus below sea level.
 2. Grounding line is the boundary between grounded ice and the adjoining floating ice shelf or ice tongue ([Weertman et al., 1974](https://doi.org/10.3189/S0022143000023327)). Here is also a more recent review of "Remote sensing of glacier and ice sheet grounding lines" by [Friedl et al. (2020)](https://doi.org/10.1016/j.earscirev.2019.102948)
+3. "The grounding line is located within the grounding zone, which represents the transition from fully grounded ice to freely floating ice. In the grounding zone, ice flexure occurs mainly due to short-term sea level variations. Hence, the grounding zone is sometimes also called “flexure zone”." from Friedl et al. (2020).
 
 **About ICESat-2**
 1. Description of the ICESat-2 satellite mission from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
