@@ -6,10 +6,10 @@ This is a project of the [ICESat-2 track](https://icesat-2-2024.hackweek.io/intr
 
 The project derives the grounding line position of Greenland's tidewater glaciers from the surface elevation measured by ICESat-2. The grounding line or grounding zone has been identified as an important feature related to the stability of tidewater glaciers. Its depth is a key parameter in modeling submarine melting. If the grounding line is above a retrograde bed, it can induce rapid retreat of the calving front. Previous studies have also shown that glaciers are more sensitive to grounding line migration than to changes in terminus position due to reductions in basal resistance. There are many other questions that need to be investigated, such as how grounding line migration might affect the drainage of subglacial channels.
 
-During this hackweek we hope to achieve the following goals.
+During this hackweek we hope to achieve the following broad goals. Team members are welcome to define their own objectives and combine it with our project.
 
 1. Become familiar with ICESat-2 datasets and geospatial data processing using Python.
-2. Explore different methods to derive grounding lines from surface elevations.
+2. Explore different methods of deriving grounding lines from surface elevation measurements and corresponding challenges and uncertainties.
 3. Develop reproducible workflows and data visualization tools.
 
 
@@ -65,7 +65,8 @@ graph LR;
     G-->H;
 ```
 
-In addition, participants are welcome to explore beyond the above mentioned grounding line detection methods. Here are three examples.
+> [!NOTE]
+> In addition, participants are welcome to explore beyond the above mentioned grounding line detection methods. Here are three examples.
 
 **Example 1**: use ATL03 instead of ATL06 to explore the glacier gemetry near the ice-ocean boundary. One can also play with different data filtering methods to find ice surface and test if it's a better dataset for finding grounding zone, an example flowchart can be:
 
@@ -88,54 +89,35 @@ graph LR;
 
 ### Additional resources or background reading
 
-What is a ground line or grounding zone?
+**What is a ground line or grounding zone?**
 1. Tidewater glaciers are marine-terminating outlet glaciers, where glacier flows to the ocean with its bedrock at the terminus beneath sea level.
 2. Grounding line is the boundary between grounded ice and the adjoining floating ice shelf or ice tongue ([Weertman et al., 1974](https://doi.org/10.3189/S0022143000023327)). Here is also a more recent review of "Remote sensing of glacier and ice sheet grounding lines" from [Friedl et al. (2020)](https://doi.org/10.1016/j.earscirev.2019.102948)
 
-ICESat-2
+**About ICESat-2**
 1. Description of ICESat-2 satellite mission from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
 2. ICESat-2 data is available on [NSIDC](https://nsidc.org/data/icesat-2/data)
 3. Python packages for obtaining ICESat-2 data: [icepyx](https://icepyx.readthedocs.io/en/latest/), [SlideRule](https://slideruleearth.io/)
 
-Python Libraries for Geospatial Data Processing
+**Python libraries for geospatial data processing**
 1. [gdal](https://gdal.org/api/index.html#python-api) for general geospatial data processing.
 2. [GeoPandas](https://geopandas.org/en/stable/index.html) has *GeoDataFrame* that works great with raster or vector data.
 4. [Shapely](https://shapely.readthedocs.io/en/stable/) has great functions to work with vector data, such as creating and processing points, lines, and polygons.
 5. [Rasterio](https://rasterio.readthedocs.io/en/stable/) has all the basin functions to read and processing raster data.
-7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformation
-8. Xarray
-9. hdf5, netCDF4
+7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformation.
+8. [Xarray](https://docs.xarray.dev/en/stable/) works great with labelled multi-dimensional arrays or datasets, such as netCDF files.
+9. [netCDF4](https://unidata.github.io/netcdf4-python/) is used to handle netCDF files in Python.
+10. [h5py](https://docs.h5py.org/en/stable/)is used to handle HDF5 binary data format, which is used by ICESat-2 ATL03 and ATL06 datasets.
+11. [ee](https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api) is the Google Earth Engine Python API, which can be used to visualize and analyze various remote sensing dataset in the cloud.
 
-**Other useful tools
-1. **Version control: Github and git
-2. **Workflow Management System: Snakemake
-3. **Interactive data display: dash, streamlit
-
-## Project goals and tasks
-
-### Project goals
-
-List the specific project goals or research questions you want to answer. Think about what outcomes or deliverables you'd like to create (e.g. a series of tutorial notebooks demonstrating how to work with a dataset, results of an anaysis to answer a science question, an example of applying a new analysis method, or a new python package).
-
-* Goal 1
-* Goal 2
-* ...
-
-### Tasks
-
-What are the individual tasks or steps that need to be taken to achieve each of the project goals identified above? What are the skills that participants will need or will learn and practice to complete each of these tasks? Think about which tasks are dependent on prior tasks, or which tasks can be performed in parallel.
-
-* Task 1 (all team members will learn to use GitHub)
-* Task 2 (team members will use the scikit-learn python library)
-  * Task 2a (assigned to team member A)
-  * Task 2b (assigned to team member B)
-* Task 3
-* ...
+**Other useful tools**
+1. Version control: Github and git
+2. Workflow Management System: [Snakemake](https://snakemake.github.io/) (Python-based workflow management system to create reproducible and scalable data analyses)
+3. Interactive data apps: [dash](https://dash.plotly.com/), [streamlit](https://streamlit.io/)
 
 ## Files and folders in your project repository
 
-This template provides the following suggested organizaiton structure for the project repository, but each project team is free to organize their repository as they see fit.
-
+* **`assets/`**
+<br> Images or custom CSS files are stored here.
 * **`contributors/`**
 <br> Each team member can create their own folder under contributors, within which they can work on their own scripts, notebooks, and other files. Having a dedicated folder for each person helps to prevent conflicts when merging with the main branch. This is a good place for team members to start off exploring data and methods for the project.
 * **`notebooks/`**
