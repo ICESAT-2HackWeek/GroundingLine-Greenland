@@ -68,13 +68,13 @@ graph LR;
 > [!NOTE]
 > In addition, team members are encouraged to explore other methods of grounding beyond those listed above. Here are three examples.
 
-**Example 1**: Use ATL03 instead of ATL06 to explore glacier geometry near the ice-ocean boundary. You can also play with different data filtering methods to find the ice surface and test if it's a better dataset for finding the grounding zone, see an example flowchart:
+**Example 1**: Use ATL03 instead of ATL06 to study glacier geometry near the ice-ocean boundary. ATL03 is the geolocated photon cloud dataset that preserves information such as crevasses near the glacier terminus where they exist. You can start with the *signal_conf_ph* classification (land, ocean, sea ice, land ice, inland water) with specific confidence levels from 0 (likely background) to 4 (high confidence signal), then play with different data filtering methods to determine the ice surface and test if it's a better dataset for finding the grounding zone. Here is a simple example flowchart:
 
 ```mermaid
 graph LR;
     A(ATL03)-->B[/Subset to AOI/];
     B-->C{is it on land ice?};
-    C-->|Yes| D[/Photon data filtering/];
+    C-->|Yes| D[/Near terminus glacier surface characterization\n using photon cloud data/];
     C-->|No| E[Terminus position];
     D-->F(Ice surface);
     F-->G[/Grounding line/zone detection/]
@@ -85,7 +85,7 @@ graph LR;
 1. Visualize 3D or 4D data without user coding, such as displaying maps, surface elevation profiles, or time series at a user-selected date or location.
 2. Display statistics. For example, how many glaciers on the Greenland Ice Sheet have a floating ice tongue, meaning the grounding line is upstream of the glacier terminus, and where they are located?
 
-**Example 3**: Test the use of DEMs to derive the grounding line and compare with ICESat-2 results. DEMs such as [ArcticDEM](https://www.pgc.umn.edu/data/arcticdem/) have the potential to resolve the full grounding line in the fast-flowing region of tidewater glaciers. However, they have varying degrees of uncertainty in their vertical accuracy. Sometimes the error can be as large as a few meters. If you are interested in looking into this, even just comparing these different DEMs with the ICESat-2 surface elevation would be a great exercise.
+**Example 3**: Test the use of DEMs to derive the grounding line and compare with ICESat-2 results. If ICESat-2 ground tracks are nearly perpendicular to the glacier flow direction, gaps between different ground tracks would make it difficult to determine the position of the grounding line. DEMs such as time-dependent strips from [ArcticDEM](https://www.pgc.umn.edu/data/arcticdem/) have the potential to resolve the full grounding line in the fast-flowing region of tidewater glaciers. However, they have varying degrees of uncertainty in their vertical accuracy. Sometimes the error can be as large as a few meters. If you are interested in looking into this, even just comparing these different DEMs with the ICESat-2 surface elevation would be a great exercise.
 
 ### Additional resources or background reading
 
@@ -95,9 +95,11 @@ graph LR;
 3. "The grounding line is located within the grounding zone, which represents the transition from fully grounded ice to freely floating ice. In the grounding zone, ice flexure occurs mainly due to short-term sea level variations. Hence, the grounding zone is sometimes also called "flexure zone". " by Friedl et al. (2020).
 
 **About ICESat-2**
-1. Description of the ICESat-2 satellite mission from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
-2. ICESat-2 data are available at [NSIDC](https://nsidc.org/data/icesat-2/data)
-3. Python packages to obtain ICESat-2 data: [icepyx](https://icepyx.readthedocs.io/en/latest/), [SlideRule](https://slideruleearth.io/)
+1. Description of the ICESat-2 satellite mission design from [Markus et al. (2017)](https://doi.org/10.1016/j.rse.2016.12.029)
+2. ATL03 L2A Global Geolocated Photon data product details: [Neumann et al. (2019)](https://doi.org/10.1016/j.rse.2019.111325)
+3. ATL06 L3A Land Ice Height data product details: [Smith et al. (2019)](https://doi.org/10.1016/j.rse.2019.111352)
+4. ICESat-2 data are available at [NSIDC](https://nsidc.org/data/icesat-2/data)
+5. Python packages to obtain ICESat-2 data: [icepyx](https://icepyx.readthedocs.io/en/latest/), [SlideRule](https://slideruleearth.io/)
 
 **Python libraries for geospatial data processing**
 1. [gdal](https://gdal.org/api/index.html#python-api) for general geospatial data processing.
@@ -107,7 +109,7 @@ graph LR;
 7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformations.
 8. [Xarray](https://docs.xarray.dev/en/stable/) works great with labelled multidimensional arrays or datasets, such as netCDF files.
 9. [netCDF4](https://unidata.github.io/netcdf4-python/) is used to handle netCDF files in Python.
-10. [h5py](https://docs.h5py.org/en/stable/)is used to handle HDF5 binary data format, which is used by the ICESat-2 ATL03 and ATL06 datasets.
+10. [h5py](https://docs.h5py.org/en/stable/) is used to handle HDF5 binary data format, which is used by the ICESat-2 ATL03 and ATL06 datasets.
 11. [ee](https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api) is the Google Earth Engine Python API, which can be used to visualize and analyze various remote sensing datasets in the cloud.
 
 **Other useful tools**
