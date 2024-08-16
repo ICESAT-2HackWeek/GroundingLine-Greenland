@@ -66,7 +66,7 @@ graph LR;
 ```
 
 > [!NOTE]
-> In addition, team members are encouraged to explore other methods of grounding beyond those listed above. Here are three examples.
+> In addition, team members are encouraged to explore beyond the method suggested above. Here are three examples.
 
 **Example 1**: Use ATL03 instead of ATL06 to study glacier geometry near the ice-ocean boundary. ATL03 is the geolocated photon cloud dataset that preserves information such as crevasses near the glacier terminus where they exist. You can start with the *signal_conf_ph* classification (land, ocean, sea ice, land ice, inland water) with specific confidence levels from 0 (likely background) to 4 (high confidence signal), then play with different data filtering methods to determine the ice surface and test if it's a better dataset for finding the grounding zone. Here is a simple example flowchart:
 
