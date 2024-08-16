@@ -103,7 +103,7 @@ graph LR;
 
 **Python libraries for geospatial data processing**
 1. [gdal](https://gdal.org/api/index.html#python-api) for general geospatial data processing.
-2. [GeoPandas](https://geopandas.org/en/stable/index.html) has *GeoDataFrame* which works well with raster or vector data.
+2. [GeoPandas](https://geopandas.org/en/stable/index.html) has *GeoDataFrame* which works well with vector data.
 4. [Shapely](https://shapely.readthedocs.io/en/stable/) has great functions for working with vector data, such as creating and manipulating points, lines, and polygons.
 5. [Rasterio](https://rasterio.readthedocs.io/en/stable/) has all the basic functions to read and processing raster data.
 7. [pyproj](https://pyproj4.github.io/pyproj/stable/) works great for projection transformations.
