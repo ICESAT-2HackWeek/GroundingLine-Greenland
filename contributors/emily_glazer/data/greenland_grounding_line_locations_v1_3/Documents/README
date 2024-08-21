@@ -1,0 +1,30 @@
+The files contain grounding lines for 5 North Greenland glaciers from ERS-1/-2 SAR and Sentinel-1 SAR interferometry:
+* 79Fjord
+* Hagen
+* Petermann
+* Ryder
+* Zachariae
+
+Format is shape-files, produced by ENVEO, Austria.
+
+Detailed information on the use and background for these products can
+be found in the "CCI Product User Guide" 
+http://esa-icesheets-greenland-cci.org/sites/default/files/documents/public/Phase%202%20Documents/Task%203%20Systems/ST-DTU-ESA-GISCCI-PUG-001_v2.1.pdf
+
+For data use, please cite:
+
+"ESA Greenland_Icesheet_CCI, Grounding Lines from SAR Interferometry"
+
+For web questions contact Andreas Thorvaldsen, thorvaldsen@stcorp.no 
+For general background information see http://esa-icesheets-greenland-cci.org
+
+
+Update v1.3
+* Added grounding lines 2017
+* Joined attributes of:
+        images_{glacier}_{date}.shp
+        segments_{glacier}_{date}.shp
+        sessions_{glacier}.shp to one common file: gll_{glacier}_{id}_{date}.shp
+
+Update v1.2
+* Added Petermann 20151014

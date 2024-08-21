@@ -1,0 +1,68 @@
+ID, Attribute, Format, Mandatory,Unit, Attribute description,
+1,RC_ID,Int [3],YES,[-],Identification number of the Processing Agency ,
+2,proc_fac,string [10],YES,[-],Name of the Processing Agency ,
+3,proc_date,String [19],YES,[UTC],Time of grounding line detection: 'YYYY-MM-DD/HH:MM:SS' ,
+4,mission,String [4],YES,[-],"name of satellite:
+TSX: TerraSAR-X or TanDEM-X
+ERS': ERS1 or ERS2
+ENV': Envisat
+SEN': Sentinel-1A or Sentinel-1B 
+RAD: Radarsat
+RA2: Radarsat-2
+ALO: ALOS Palsar
+AL2: ALOS Palsar 2
+COS: COSMO-Skymed",
+5,sensor,String [7],YES,[-],Instrument name (e.g. C-SAR) ,
+6,lookdir,String [1],YES,[-],"satellite look direction: ['R','L'] ",
+7,passdir,String [1],YES,[-],"satellite pass direction: ['A','D'] ",
+8,relorb,Int[7],YES,[-],relative orbit number ,
+9,proc_desc,String [80],YES,[-],Description of processing steps: e.g. SLC level1 - resampling - interferometric fringes - geocoding - assembling to shapefiles,det_mode
+10,v_removed,String [3],YES,[-],"if dphase was corrected for velocity: ['yes', 'no','unknown'] ",
+11,dem,string [10],YES,[-],"used DEM for geocoding: ['RAMP200', 'BEDMAP2', 'BAMBER']
+",
+12,proc_soft,string [10],YES,[-],used software for geocoding,
+13,soft_ver,string [10],YES,[-],software version,
+14,orig_id,String [200],YES,[-],Original ID of datasets e.g. S1A_IW_SLC__1SSH_20170209T205005_20170209T205032_015212_018E89_93BC,
+15,category,String [30],YES,[-],"Category of analysed line: ['tidal_flexure_zone_seaward', 'tidal_flexure_zone_landward']","not used in AISCCI-GLL
+Given by filename"
+16,glac_name,String [20],NO,[-],Name of glacier,
+17,glac_ID,String [20],YES,[-],Unique glacier ID ,
+18,acq_time_1,String [19],YES,[UTC],"date/time of pass 1, string, 'YYYY-MM-DD/HH:MM:SS' ",
+19,acq_time_2,String [19],YES,[UTC],"date/time of pass 2, string, 'YYYY-MM-DD/HH:MM:SS' ",
+20,acq_time_3,String [19],NO,[UTC],"date/time of pass 3, string, 'YYYY-MM-DD/HH:MM:SS' ",
+21,acq_time_4,String [19],NO,[UTC],"date/time of pass 4, string, 'YYYY-MM-DD/HH:MM:SS' ",
+22,rp_lat,"Float[11,6]",YES,[deg],"Latitude (WGS84) of reference point for tide/air pressure extraction
+Given in decimal degrees, range [-90.0 ... -59.0] ",
+23,rp_lon,"Float[11,6]",YES,[deg],"Longitude (WGS84) of reference point for tide/air pressure extraction
+Given in decimal degrees, range: [-180.0 ... 180.0]",
+24,otl_t1,"Float[11,6]",YES,[m],"predicted ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_1",
+25,otl_t2,"Float[11,6]",YES,[m],"predicted ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_2",
+26,otl_t3,"Float[11,6]",NO,[m],"predicted ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_3",
+27,otl_t4,"Float[11,6]",NO,[m],"predicted ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_4",
+28,nap_t1,"Float[11,6]",YES,[hPa],"interp. ncep air press. at (t_rp_lon, t_rp_lat) at acq_time_1",
+29,nap_t2,"Float[11,6]",YES,[hPa],"interp. ncep air press. at (t_rp_lon, t_rp_lat) at acq_time_2",
+30,nap_t3,"Float[11,6]",NO,[hPa],"interp. ncep air press. at (t_rp_lon, t_rp_lat) at acq_time_3",
+31,nap_t4,"Float[11,6]",NO,[hPa],"interp. ncep air press. at (t_rp_lon, t_rp_lat) at acq_time_4",
+32,cor_otl_t1,"Float[11,6]",YES,[m],"air press. corr. ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_1",
+33,cor_otl_t2,"Float[11,6]",YES,[m],"air press. corr. ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_2",
+34,cor_otl_t3,"Float[11,6]",NO,[m],"air press. corr. ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_3",
+35,cor_otl_t4,"Float[11,6]",NO,[m],"air press. corr. ocean tide level at (t_rp_lon, t_rp_lat) at acq_time_4",
+36,dh1,"Float[11,6]",YES,[m],"expected vertical difference:
+Dh1 = t_corr_otl_t2 - t_corr_otl_t1 ",
+37,dh2,"Float[11,6]",NO,[m],"expected vertical difference dh2:
+if (t_num_passes == 4): dh2 = t_corr_otl_t4 - t_corr_otl_t3
+if (t_num_passes == 3): dh2 = t_corr_otl_t2 - t_corr_otl_t3
+If (t_num_passes == 2): dh2 = 0.0 ",
+38,Dhf,"Float[11,6]",YES,[m],"final height difference
+if t_num_passes == 4: Dhf = dh2 - dh1
+if t_num_passes == 3: Dhf = dh2 - dh1
+If t_num_passes == 2: Dhf = dh1 ",
+39,tidesrc,string [10],YES,[-],"name of source for ocean tide model: ['CATS2008a','TPXO7.2', ...] ",
+40,airpresrc,string [10],YES,[-],name of source for air pressure ,
+41,gllsrc,string [10],YES,[-],"if external data is included, enter reference here ",
+42,det_mode,string [10],YES,[-],"detection mode: ['manual', 'interactive', 'editing', 'auto', 'unknown'] ",
+43,quality,string [10],YES,[-],"quality indicator: ['excellent', 'good', 'medium', 'poor', 'unknown'] ",
+44,loc_unc_x,"Float[11,4]",YES,[m],"Local (within-image) location uncertainty, in meters in general 1 pixel size ",
+45,loc_unc_y,"Float[11,4]",YES,[m],"Local (within-image) location uncertainty, in meters in general 1 pixel size ",
+46,glob_unc_x,"Float[11,4]",YES,[m],"Global (geographic) location uncertainty, in meters ",
+47,glob_unc_y,"Float[11,4]",YES,[m],"Global (geographic) location uncertainty, in meters ",
