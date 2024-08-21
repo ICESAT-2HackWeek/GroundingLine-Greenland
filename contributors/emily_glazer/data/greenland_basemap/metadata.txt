@@ -1,0 +1,12 @@
+Stylized shaded-relief map for providing a general sense of geography.
+
+=== Original Data Source ===
+Natural Earth II with Shaded Relief and Water (1:10m)
+
+Natural Earth II (Public Domain).
+
+Citation:
+Made with Natural Earth [Accessed on: 2021-12-23]
+
+Citation URL:
+https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md
