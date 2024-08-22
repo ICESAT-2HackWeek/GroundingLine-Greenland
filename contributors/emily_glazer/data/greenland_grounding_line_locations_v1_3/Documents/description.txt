@@ -1,0 +1,1 @@
+Grounding lines for 5 North Greenland glaciers from ERS-1/-2 SAR and Sentinel-1 SAR interferometry.
