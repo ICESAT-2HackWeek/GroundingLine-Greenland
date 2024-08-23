@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE GranuleMetaDataFile SYSTEM "http://ecsinfo.gsfc.nasa.gov/ECSInfo/ecsmetadata/dtds/DPL/ECS/ScienceGranuleMetadata.dtd">
+<GranuleMetaDataFile>
+    <DTDVersion>1.0</DTDVersion>
+    <DataCenterId>NSIDC</DataCenterId>
+    <GranuleURMetaData>
+        <GranuleUR>SC:IDBMG4.005:244470242</GranuleUR>
+        <DbID>244470242</DbID>
+        <InsertTime>2022-09-01 17:19:01.870</InsertTime>
+        <LastUpdate>2022-09-01 17:19:01.870</LastUpdate>
+        <CollectionMetaData>
+            <ShortName>IDBMG4</ShortName>
+            <VersionID>005</VersionID>
+        </CollectionMetaData>
+        <DataFiles>
+            <DataFileContainer>
+                <DistributedFileName>BedMachineGreenland-v5.nc</DistributedFileName>
+                <FileSize>2675389700</FileSize>
+                <ChecksumType>MD5</ChecksumType>
+                <Checksum>7387182a059dd8cad66ce7638eb0d7cd</Checksum>
+                <ChecksumOrigin>DPLIngst</ChecksumOrigin>
+            </DataFileContainer>
+        </DataFiles>
+        <ECSDataGranule>
+            <SizeMBECSDataGranule>2551.45</SizeMBECSDataGranule>
+            <LocalGranuleID>BedMachineGreenland-v5.nc</LocalGranuleID>
+            <ProductionDateTime>2022-08-17 15:10:45.000</ProductionDateTime>
+            <LocalVersionID>005</LocalVersionID>
+        </ECSDataGranule>
+        <RangeDateTime>
+            <RangeEndingTime>23:59:59.000000</RangeEndingTime>
+            <RangeEndingDate>2021-12-31</RangeEndingDate>
+            <RangeBeginningTime>00:00:01.000000</RangeBeginningTime>
+            <RangeBeginningDate>1993-01-01</RangeBeginningDate>
+        </RangeDateTime>
+        <SpatialDomainContainer>
+            <HorizontalSpatialDomainContainer>
+                <GPolygon>
+                    <Boundary>
+                        <Point>
+                            <PointLongitude>9.45223</PointLongitude>
+                            <PointLatitude>80.03408</PointLatitude>
+                        </Point>
+                        <Point>
+                            <PointLongitude>-30.13395</PointLongitude>
+                            <PointLatitude>58.36912</PointLatitude>
+                        </Point>
+                        <Point>
+                            <PointLongitude>-56.26043</PointLongitude>
+                            <PointLatitude>58.79742</PointLatitude>
+                        </Point>
+                        <Point>
+                            <PointLongitude>-90.95297</PointLongitude>
+                            <PointLatitude>81.64025</PointLatitude>
+                        </Point>
+                    </Boundary>
+                </GPolygon>
+            </HorizontalSpatialDomainContainer>
+        </SpatialDomainContainer>
+        <Platform>
+            <PlatformShortName>NASA DC-8</PlatformShortName>
+            <Instrument>
+                <InstrumentShortName>MCoRDS</InstrumentShortName>
+                <Sensor>
+                    <SensorShortName>MCoRDS</SensorShortName>
+                </Sensor>
+            </Instrument>
+        </Platform>
+        <Platform>
+            <PlatformShortName>P-3B</PlatformShortName>
+            <Instrument>
+                <InstrumentShortName>MCoRDS</InstrumentShortName>
+                <Sensor>
+                    <SensorShortName>MCoRDS</SensorShortName>
+                </Sensor>
+            </Instrument>
+        </Platform>
+        <PSAs>
+            <PSA>
+                <PSAName>SIPSMetGenVersion</PSAName>
+                <PSAValue>2.5</PSAValue>
+            </PSA>
+        </PSAs>
+    </GranuleURMetaData>
+</GranuleMetaDataFile>
+
